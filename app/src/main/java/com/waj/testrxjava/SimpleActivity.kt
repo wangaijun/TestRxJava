@@ -8,6 +8,7 @@ import rx.Observable
 import rx.Subscriber
 import rx.android.schedulers.AndroidSchedulers
 import rx.functions.Action1
+import rx.schedulers.Schedulers
 
 class SimpleActivity : Activity() {
     private val mObservableAction = object : Observable.OnSubscribe<String> {
@@ -17,9 +18,17 @@ class SimpleActivity : Activity() {
         }
     }
 
-    private val mTextSubscriber = object : Action1<String> {
-        override fun call(t: String?) {
+    private val mTextSubscriber = object : Subscriber<String>() {
+        override fun onNext(t: String?) {
             textView.text = t
+        }
+
+        override fun onCompleted() {
+            textView.append("onCompleted")
+        }
+
+        override fun onError(e: Throwable?) {
+            textView.text = "$e"
         }
     }
 
@@ -37,9 +46,8 @@ class SimpleActivity : Activity() {
 
         //注册观察活动
         val observable = Observable.create(mObservableAction)
-
-        //设置观察线程
-        observable.observeOn(AndroidSchedulers.mainThread())
+            //设置执行线程、观察线程
+            .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
 
         //分发订阅信息
         observable.subscribe(mTextSubscriber)

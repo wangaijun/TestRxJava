@@ -21,3 +21,5 @@ task clean表示清除命令（gradle clean）脚本，删除工程根目录的b
 RxJava与RxAndroid：核心库，两者配合使用，RxJava提供基础的响应式编程框架，RxAndroid提供针对Anroid系统的补充。
 Retrofit:网络加载库，封装OKHttp库，简洁地编写网络请求
 通过Lambda表达式，省略多层嵌套的匿名类和匿名接口，改写为一层Lambda表达式，仅含有输入、输出、逻辑三个部分，增加代码的可读性。
+Schedulers的值：
+computation：计算线程，io：io线程，newThread:新线程，from：由执行器转变的线程？，test测试线程，immediate：当前线程（立即执行）、trampoline：当前线程（队列执行）
