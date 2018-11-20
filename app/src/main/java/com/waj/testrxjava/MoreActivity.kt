@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_more.*
 import rx.Observable
-import rx.Scheduler
 import rx.android.schedulers.AndroidSchedulers
 import rx.functions.Action1
 import rx.functions.Func1
@@ -60,11 +59,12 @@ class MoreActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_more)
 
-        val obShow = Observable.just(sayMyName()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        val obShow = Observable.just(sayMyName())
+            .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
         obShow.map(mUpperLetterFunc).subscribe(mTextViewAction)
 
-//        val obMap = Observable.from(mManyWords).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-//        obMap.map(mUpperLetterFunc).subscribe(mToastAction)
+        val obMap = Observable.from(mManyWordList).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        obMap.map(mUpperLetterFunc).subscribe(mToastAction)
 
         val ob = Observable.just(mManyWordList).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
         ob.flatMap(mOneWordFunc)
