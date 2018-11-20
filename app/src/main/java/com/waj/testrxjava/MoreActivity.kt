@@ -69,7 +69,7 @@ class MoreActivity : Activity() {
         val ob = Observable.just(mManyWordList).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
         ob.flatMap(mOneWordFunc)
             .reduce(mMergeStringFunc)
-            .subscribe(mToastAction)
+            .subscribe(mToastAction)//
 
     }
 }
