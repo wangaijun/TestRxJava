@@ -17,8 +17,8 @@ class MainActivity : Activity() {
         startActivity(Intent(this,when(v){
             btnSimple->SimpleActivity::class.java
             btnMore->MoreActivity::class.java
-            btnSimple->LambdaActivity::class.java
-            btnSimple->RetrofitActivity::class.java
+            btnLambda->LambdaActivity::class.java
+            btnNetWork->RetrofitActivity::class.java
             else->SimpleActivity::class.java
         }))
     }
