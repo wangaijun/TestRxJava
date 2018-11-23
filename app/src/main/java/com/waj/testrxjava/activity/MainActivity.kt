@@ -1,9 +1,10 @@
-package com.waj.testrxjava
+package com.waj.testrxjava.activity
 
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.waj.testrxjava.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : Activity() {
@@ -15,11 +16,11 @@ class MainActivity : Activity() {
 
     fun gotoModule(v: View) {
         startActivity(Intent(this,when(v){
-            btnSimple->SimpleActivity::class.java
-            btnMore->MoreActivity::class.java
-            btnLambda->LambdaActivity::class.java
-            btnNetWork->RetrofitActivity::class.java
-            else->SimpleActivity::class.java
+            btnSimple-> SimpleActivity::class.java
+            btnMore-> MoreActivity::class.java
+            btnLambda-> LambdaActivity::class.java
+            btnNetWork-> RetrofitActivity::class.java
+            else-> SimpleActivity::class.java
         }))
     }
 }

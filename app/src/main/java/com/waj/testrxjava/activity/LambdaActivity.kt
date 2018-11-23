@@ -1,8 +1,9 @@
-package com.waj.testrxjava
+package com.waj.testrxjava.activity
 
 import android.app.Activity
 import android.os.Bundle
 import android.widget.Toast
+import com.waj.testrxjava.R
 import kotlinx.android.synthetic.main.activity_lambda.*
 import rx.Observable
 import rx.android.schedulers.AndroidSchedulers

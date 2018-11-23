@@ -1,4 +1,4 @@
-package com.waj.testrxjava;
+package com.waj.testrxjava.service;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;

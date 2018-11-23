@@ -1,5 +1,6 @@
-package com.waj.testrxjava;
+package com.waj.testrxjava.service;
 
+import com.waj.testrxjava.adapter.UserListAdapter;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import rx.Observable;
