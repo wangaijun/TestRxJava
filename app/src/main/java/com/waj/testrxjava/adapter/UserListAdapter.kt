@@ -47,15 +47,15 @@ class UserListAdapter(val callback: RetrofitActivity.UserClickCallback) : Recycl
         fun bindTo(user: GitHubUser) {
             tvUserName.text = user.name
             tvUserLogin.text = user.login
-            tvUserPage.text = user.reposUrl
+            tvUserPage.text = user.repos_url
 //            Glide.with(ivUserPicture).load(user.avatarUrl).into(ivUserPicture)
         }
     }
 
     class GitHubUser{
         var login: String?=null
-        var avatarUrl: String?=null
+        var avatar_url: String?=null
         var name: String? = null
-        var reposUrl: String? = null
+        var repos_url: String? = null
     }
 }
